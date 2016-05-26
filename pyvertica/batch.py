@@ -32,6 +32,7 @@ def require_started_batch(func):
         return func(self, *args, **kwargs)
     return inner_func
 
+
 class VerticaBatch(object):
     """
     Object for writing multiple records to Vertica in a batch.
@@ -224,10 +225,10 @@ class VerticaBatch(object):
             self._initialize_batch()
 
         self._csv_file_obj = tempfile.NamedTemporaryFile('w')
-        temp_file_path= self._csv_file_obj.name
+        temp_file_path = self._csv_file_obj.name
         self._csv_file_obj.close()
         self._csv_file_obj = codecs.open(temp_file_path, 'w', 'utf-8')
-        
+
         logger.debug('Batch started')
 
     @require_started_batch
@@ -583,4 +584,4 @@ class VerticaBatch(object):
             Instance of :py:class:`!pyodbc.Cursor`.
 
         """
-        return self._connection.cursor() 
+        return self._connection.cursor()
