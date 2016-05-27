@@ -254,8 +254,8 @@ class VerticaBatch(object):
                 temp_file_path = self._csv_file_obj.name
                 os.remove(temp_file_path)
         except:
-            pass 
-        
+            pass
+
         self._in_batch = False
         ended_clean = True
         logger.debug('Batch ended')
